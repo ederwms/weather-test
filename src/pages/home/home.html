@@ -22,13 +22,13 @@
   
   <ion-list *ngIf="previsao">
     <ion-item>
-      <strong>Destino: </strong> {{cidade}}
-    </ion-item>
-
-    <ion-item>
-      <strong>Data da viagem: </strong> {{myDate}}
+      <strong>Clima para {{cidade}} em {{myDate}}</strong>
     </ion-item>
     
+    <ion-item>
+      <strong>Clima: </strong> {{previsao.currently.summary}}
+    </ion-item>
+
     <ion-item>
       <strong>Temperatura: </strong>{{previsao.currently.temperature}}&deg;
     </ion-item>
