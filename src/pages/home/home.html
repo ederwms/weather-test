@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label fixed>
+      Cidade
+    </ion-label>
+    <br>
+    <ion-input [(ngModel)]="cidade" name="cidade" type="text" placeholder="Rio de Janeiro"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Data</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" min="2018" max="2025-12-31" placeholder="18-12-2019" [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
+  <button ion-button color="primary" block type="submit" (click)="buscaClima(cidade, myDate)">Salvar</button>
+  
+  <ion-list *ngIf="previsao">
+    <ion-item>
+      <strong>Destino: </strong> {{cidade}}
+    </ion-item>
+
+    <ion-item>
+      <strong>Data da viagem: </strong> {{myDate}}
+    </ion-item>
+    
+    <ion-item>
+      <strong>Temperatura: </strong>{{previsao.currently.temperature}}&deg;
+    </ion-item>
+    
+    <ion-item>
+      <strong>Sensação térmica: </strong> {{previsao.currently.apparentTemperature}}&deg;
+    </ion-item>
+
+    <ion-item>
+        <strong>Humidade: </strong> {{previsao.currently.humidity}}
+    </ion-item>
+
+    <ion-item>
+        <strong>Indice UV: </strong> {{previsao.currently.uvIndex}}
+    </ion-item>
+  </ion-list>
+</ion-content>
